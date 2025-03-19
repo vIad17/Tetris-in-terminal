@@ -26,3 +26,7 @@ This command launches the game in the terminal. Note that when you start the pro
 - **Rotate Counter-Clockwise**: Use the `Q` key.
 - **Rotate Clockwise**: Use the `E` key.
 - **Drop Down Quickly**: Use the `S` key.
+
+## Images
+![img_1.png](images/gameplay1.png)
+![img_2.png](images/gameplay2.png)
