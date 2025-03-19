@@ -1,0 +1,377 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "org.example.managers.gameManager.GameManager",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1322970774 { 
+   	label=example
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_130996013 { 
+   	label=utils
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Vector831316387[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Vector&lt;L,R&gt;</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   x: L [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   y: R [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_161013819 { 
+   	label=entities
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Block1867875953[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Block</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Figure428300253[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Figure</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   figure: Vector&lt;Integer, Integer&gt;[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mainIndex: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ moveDown()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ moveLeft()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ moveRight()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ moveUp()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ rotateLeft()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ rotateRight()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FigureTypes35351449[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FigureTypes</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figureTypes: List&lt;List&lt;Vector&lt;Integer, Integer&gt;&gt;&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ get(n: int): List&lt;Vector&lt;Integer, Integer&gt;&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ size(): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RandomFigureBuilder35351449[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RandomFigureBuilder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elements: List&lt;Vector&lt;Integer, Integer&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   figureTypes: FigureTypes [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rand: Random [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   startColumn: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   startRow: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ build(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Wall1867875953[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Wall</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2064367210 { 
+   	label=managers
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   DownMovementCommand1778967044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DownMovementCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   figureBuilder: IFigureBuilder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   gameField: IGameField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rows: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   score: Score [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+GameManager574125919[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)GameManager</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commandMap: Map&lt;String, IMovementCommand&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   gameField: IGameField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   inputManager: IInputManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   score: Score [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ action()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InputManager1089418269[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputManager</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   inputMap: Map&lt;Integer, Runnable&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   jFrame: JFrame [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   state: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ clear()</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleInput(input: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ listen()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LeftMovementCommand1778967044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LeftMovementCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   gameField: IGameField [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LeftRotationCommand1778967044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LeftRotationCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   gameField: IGameField [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RightMovementCommand1778967044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RightMovementCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   gameField: IGameField [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RightRotationCommand1778967044[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RightRotationCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   figure: IFigure [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   gameField: IGameField [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_934373914 { 
+   	label=components
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   GameField227634206[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)GameField</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   columnsCount: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   entities: Map&lt;Integer, Map&lt;Integer, IEntity&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rowsCount: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ clearLine(y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getElement(x: int, y: int): IEntity</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLineSize(y: int): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Score1317370212[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Score</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   score: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+DownMovementCommand1778967044 -> RandomFigureBuilder35351449[arrowhead=none];
+DownMovementCommand1778967044 -> Score1317370212[label="score
+[0..1]"];
+Figure428300253 -> Vector831316387[label="figure
+[0..*]"];
+FigureTypes35351449 -> Vector831316387[label="figureTypes
+[0..*]"];
+GameField227634206 -> Block1867875953[arrowhead=none];
+GameField227634206 -> Figure428300253[arrowhead=none];
+GameField227634206 -> Wall1867875953[arrowhead=none];
+GameManager574125919 -> DownMovementCommand1778967044[arrowhead=none];
+GameManager574125919 -> InputManager1089418269[arrowhead=none];
+GameManager574125919 -> LeftMovementCommand1778967044[arrowhead=none];
+GameManager574125919 -> LeftRotationCommand1778967044[arrowhead=none];
+GameManager574125919 -> RightMovementCommand1778967044[arrowhead=none];
+GameManager574125919 -> RightRotationCommand1778967044[arrowhead=none];
+GameManager574125919 -> Score1317370212[label="score
+[0..1]"];
+LeftMovementCommand1778967044 -> GameField227634206[arrowhead=none];
+RandomFigureBuilder35351449 -> FigureTypes35351449[label="figureTypes
+[0..1]"];
+RandomFigureBuilder35351449 -> Vector831316387[label="elements
+[0..*]"];
+    
+}
+@enduml
